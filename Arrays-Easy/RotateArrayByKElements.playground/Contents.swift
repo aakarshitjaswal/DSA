@@ -74,6 +74,61 @@ func rotateByKElsReverseAlgo(_ a: [Int], _ k: Int) -> [Int]{
 rotateByKElsReverseAlgo([1,2,3,4,5,6,7], 8)
 
 
+func rotateArrayByKElements(a: [Int], k: Int, direction: Direction) -> [Int] {
+    let N = a.count
+    let K = k % N
+    var result = [Int]()
+    var breakIndex = 0
+    
+    if direction == .right {
+        breakIndex = N - K
+    } else {
+        breakIndex = K
+    }
+    
+    
+    for i in breakIndex..<a.count {
+        result.append(a[i])
+    }
+    for i in 0..<breakIndex {
+        result.append(a[i])
+    }
+    
+    return result
+    
+}
+
+rotateArrayByKElements(a: [3,7,8,9,10,11,12], k: 11, direction: .left)
+
+//Another way to do it
+
+func rotateArrayByKElements2(a: [Int], k: Int, direction: Direction) -> [Int] {
+    let N = a.count
+    let K = k % N
+    var result = [Int]()
+    var breakIndex = 0
+    
+    if direction == .right {
+        breakIndex = N - K
+    } else {
+        breakIndex = K
+    }
+    
+    
+    for i in breakIndex..<a.count {
+        result.append(a[i])
+    }
+    for i in 0..<breakIndex {
+        result.append(a[i])
+    }
+    
+    return result
+    
+}
+
+rotateArrayByKElements2(a: [3,7,8,9,10,11,12], k: 11, direction: .left)
+
+
 
 
 
