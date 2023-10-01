@@ -8,23 +8,6 @@ import UIKit
  Output: 3,3,5
  */
 
-func intersectionBRUTE(_ a: [Int], _ b: [Int]) -> [Int] {
-    var result = [Int]()
-    
-    for i in a {
-        for j in b {
-            if i == j {
-                result.append(i)
-                break
-            }
-        }
-    }
-    
-    return result
-}
-
-intersectionBRUTE([1 ,2 ,3, 3, 4, 5, 6], [3, 3, 5])
-
 func intersectionOPTIMAL(_ a: [Int], _ b: [Int]) -> [Int] {
     var result = [Int]()
     	
@@ -48,5 +31,72 @@ func intersectionOPTIMAL(_ a: [Int], _ b: [Int]) -> [Int] {
     return result
 }
 
-intersectionOPTIMAL([1, 2, 3, 3, 4, 5, 6]
+intersectionOPTIMAL([1, 2, 3, 4, 5, 6]
                     , [3, 5])
+
+
+/*
+ PRACTICE INTERSECTINO OF TWO SORTED ARRAYS
+ Example 1:
+ Input:
+ A: [1 2 3 3 4 5 6]
+ , B: [3 3 5]
+ Output: 3,3,5
+ Explanation: We are given two arrays A and B.
+ The elements present in both the arrays
+ are 3,3 and 5.
+
+ Example 2:
+ Input:
+ A: [1 2 3 3 4 5 6]
+ , B: [3 5]
+ Output: 3,5
+ Explanation: We are given two arrays A and B.
+ The elements present in both the arrays are 3 and 5.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
