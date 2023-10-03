@@ -14,7 +14,7 @@ import Foundation
 
 var myString = "Let's take LeetCode contest"
 
-//Brute Force - Time limit exceeded 
+//Brute Force - Time limit exceeded
 func reverseWordsBRUTE(_ s: String) -> String {
     var S = s + " "
     var output = ""
