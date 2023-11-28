@@ -81,75 +81,52 @@ func threeSumBETTER(_ nums: [Int]) -> [[Int]] {
 }
 
 //OPTIMAL
-//Working on Optimal Solution
 
-//func threeSumOPTIMAL(_ nums: [Int]) -> [[Int]] {
-//    
-//    var result: [[Int]] = []
-//    var a = nums.sorted()
-//    
-//    var i = 0
-//    var j = i + 1
-//    var k = nums.count - 1
-//    
-//    var prevI = a[i]
-//
-//    while i < a.count {
-//        
-//        j = i + 1
-//        k = a.count - 1
-//        
-//        while j < k {
-//            
-//            let sum = a[i] + a[j] + a[k]
-//
-//            if sum == 0 {
-//                result.append([a[i], a[j], a[k]])
-//
-//
-//                j += 1
-//                k -= 1
-//                break
-//            } else if sum < 0 {
-//                
-//                var prevJ = a[j]
-//                
-//                while a[j] == prevJ {
-//                    j += 1
-//                    if j >= k {
-//                        break
-//                    } else {
-//                        continue
-//                    }
-//                }
-//     
-//            } else {
-//                
-//                var prevK = a[k]
-//                
-//                while a[k] == prevK {
-//                    k -= 1
-//                    
-//                    if j >= k {
-//                        break
-//                    } else {
-//                        continue
-//                    }
-//                }
-//            }
-//        }
-//        
-//        prevI = a[i]
-//        
-//        while i < a.count && a[i] == prevI {
-//            i += 1
-//        }
-//    }
-//    
-//    print(result)
-//    return result
-//    
-//}
-//
-//threeSumOPTIMAL([-1,0,1,2,-1,-4])
+func threeSumOPTIMAL(_ nums: [Int]) -> [[Int]] {
+    
+    var result: [[Int]] = []
+    var a = nums.sorted()
+    
+    var i = 0
+
+    
+    var prevI = a[i]
+
+    for i in 0..<a.count {
+        
+        if(i > 0 && a[i] == a[i - 1]) { continue }
+        
+        var j = i + 1
+        var k = nums.count - 1
+        
+        while j < k {
+            
+            let sum = a[i] + a[j] + a[k]
+
+            if sum == 0 {
+                result.append([a[i], a[j], a[k]])
+                j += 1
+                k -= 1
+                
+                while(j < k && a[j] == a[j-1]) { j += 1}
+                while(j < k && a[k] == a[k+1]) { k -= 1}
+            
+            } else if sum > 0 {
+                
+                k -= 1
+     
+            } else {
+                
+                j += 1
+                
+            }
+        }
+    }
+    
+    print(result)
+    return result
+    
+}
+
+threeSumOPTIMAL([-1,0,1,2,-1,-4])
 
