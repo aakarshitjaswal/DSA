@@ -80,6 +80,9 @@ func fourSumBETTER(_ nums: [Int], _ target: Int) -> [[Int]] {
 fourSumBETTER(nums, 0)
 
 //OPTIMAL
+//Input: nums = [1,0,-1,0,-2,2], target = 0
+
+
 
 func fourSumOptimal(_ nums: [Int], _ target: Int) -> [[Int]] {
     
@@ -87,14 +90,41 @@ func fourSumOptimal(_ nums: [Int], _ target: Int) -> [[Int]] {
     var result: [[Int]] = []
     
     for i in 0..<a.count {
+        if i > 0 && a[i] == a[i - 1] { continue }
         for j in i+1..<a.count {
-            for k in j+1..<a.count {
+            if j > i + 1 && a[j] == a[j - 1] { continue }
+            var k = j + 1
+            var l = a.count - 1
+
+            while k < l {
+
+                let sum = a[i] + a[j] + a[k] + a[l]
                 
+
+                if sum == target {
+                    let quad = [a[i], a[j], a[k], a[l]]
+                    result.append(quad)
+                    
+                    k += 1
+                    l -= 1
+                    
+                    while k < l && a[k] == a[k - 1] { k += 1}
+                    while k < l && a[l] == a[l + 1] { l -= 1}
+
+
+                } else if sum < target {
+                    k += 1
+                } else  {
+                    l -= 1
+                }
             }
+            
         }
-        
     }
-    
     return result
 }
+
+let twos = [2,2,2,2,2]
+fourSumOptimal(twos, 8)
+
 
