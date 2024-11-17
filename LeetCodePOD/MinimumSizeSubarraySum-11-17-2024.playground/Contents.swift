@@ -47,3 +47,32 @@ func minimumSizeSubarraySumBruteForce(_ target: Int, _ nums: [Int]) -> Int {
 }
 
 minimumSizeSubarraySumBruteForce(7,[2,3,1,2,4,3])
+
+func minimumSizeSubarraySumOptimal(_ target: Int, _ nums: [Int]) -> Int {
+    
+    var prefixSum: [Int] = [0]
+    
+    for i in 1..<nums.count + 1 {
+        prefixSum.append(0)
+        prefixSum[i] = prefixSum[i - 1] + nums[i - 1]
+    }
+    
+    var result = Int.max
+    var sum = 0
+    
+    var i = 0
+    var j = 0
+    
+    while j < nums.count && i < nums.count {
+        let sum = prefixSum[j + 1] - prefixSum[i]
+        if sum >= target {
+            result = min(result, j - i + 1)
+            i += 1
+        } else {
+            j += 1
+        }
+    }
+    return result == Int.max ? 0 : result
+}
+
+minimumSizeSubarraySumOptimal(7,[2,3,1,2,4,3])
