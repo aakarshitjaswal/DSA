@@ -1,5 +1,5 @@
-### DSA Practice
-## This is my attempt at learning the languages that I want by solving DSA problems in them.
+## DSA Practice
+### This is my attempt at learning the languages that I want by solving DSA problems in them.
 
 ## Entry Points & Running
 | Language | Execution Command | Entry Point |
